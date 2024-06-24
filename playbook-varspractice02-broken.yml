@@ -1,0 +1,15 @@
+- name: complex variable data
+  hosts: localhost
+  connection: local
+  gather_facts: false
+
+  vars_files:
+     - ~/mycode/vars/storagevars.yml
+
+  tasks:
+  - name: debug with_dict
+    ansible.builtin.debug:
+      var: item
+    #loop: "{{ compute_work }}"  # this will FAIL because compute_work is a dictionary
+    loop: "{{ compute_work|dict2items }}"   ## this line now includes dict2items
+      ## the above is a jinja filter
