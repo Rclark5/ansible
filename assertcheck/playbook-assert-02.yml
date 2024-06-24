@@ -1,0 +1,13 @@
+- name: A playbook that runs gather_facts
+  hosts: planetexpress
+  connection: ssh
+  gather_facts: true
+
+  tasks:
+  - name: Display all facts that are gathered
+    ansible.builtin.debug:
+      var: ansible_facts
+  - name: Assert that the targets are using the correct bios
+    ansible.builtin.assert:
+      that: ansible_facts.bios_vendor == "SeaBIOS"
+

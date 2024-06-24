@@ -1,0 +1,16 @@
+- name: Using Ansible to send an HTTP GET
+  hosts: localhost
+  connection: local
+  gather_facts: false
+
+  tasks:
+    - name: Send HTTP GET to requestbin.com
+      ansible.builtin.uri:
+        url: http://127.0.0.1:2224/redfish/v1/UpdateService
+      register: UpdateService
+
+    - name: Display results
+      debug:
+        var: UpdateService
+
+#https://enbxcowve07kr.x.pipedream.net

@@ -1,0 +1,14 @@
+- name: Assert module with success_msg and fail msg
+  hosts: planetexpress
+  connection: ssh
+  gather_facts: true
+
+  tasks:
+  - name: Install Steam Locomotove on All Machines
+    ansible.builtin.debug:
+      var: ansible_facts
+  - name: Assert that the targets are using the correct bios
+    ansible.builtin.assert:
+      that: ansible_facts.bios_vendor == "SeaBIOS"
+      fail_msg: "bios_vendor seems to  incorrect"
+      success_msg: "bios_vendor is correct"
