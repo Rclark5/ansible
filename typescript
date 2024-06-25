@@ -1,0 +1,374 @@
+Script started on 2024-06-25 17:45:08+00:00 [TERM="xterm-256color" TTY="/dev/pts/3" COLUMNS="97" LINES="54"]
+[?2004h]0;student@bchd: ~/mycode[01;32mstudent@bchd[00m:[01;34m~/mycode[00m$ [7m ansible-playbook ~/mycode/playbook-redfish-command_challange01.yaml[27m[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C ansible-playbook ~/mycode/playbook-redfish-command_challange01.yaml
+[?2004l
+PLAY [Create a session and token to use] ********************************************************
+
+TASK [create session] ***************************************************************************
+[0;33mchanged: [localhost][0m
+
+TASK [show results of the session] **************************************************************
+[0;32mok: [localhost] => {[0m
+[0;32m    "result": {[0m
+[0;32m        "changed": true,[0m
+[0;32m        "failed": false,[0m
+[0;32m        "msg": "Action was successful",[0m
+[0;32m        "return_values": {},[0m
+[0;32m        "session": {[0m
+[0;32m            "token": "734bccb3426e39778ec080d96e527097",[0m
+[0;32m            "uri": "/redfish/v1/Sessions/113"[0m
+[0;32m        }[0m
+[0;32m    }[0m
+[0;32m}[0m
+
+TASK [reflect on session and token information] *************************************************
+[reflect on session and token information]
+Press enter to continue, Ctrl+C to interrupt:
+^M[[[K[0;32mok: [localhost][0m
+
+TASK [get info using a token not a password and username] ***************************************
+[0;32mok: [localhost][0m
+
+TASK [show facts we retrieved with session token] ***********************************************
+[0;32mok: [localhost] => {[0m
+[0;32m    "result": {[0m
+[0;32m        "changed": true,[0m
+[0;32m        "failed": false,[0m
+[0;32m        "msg": "Action was successful",[0m
+[0;32m        "return_values": {},[0m
+[0;32m        "session": {[0m
+[0;32m            "token": "734bccb3426e39778ec080d96e527097",[0m
+[0;32m            "uri": "/redfish/v1/Sessions/113"[0m
+[0;32m        }[0m
+[0;32m    }[0m
+[0;32m}[0m
+
+TASK [show results of the facts] ****************************************************************
+[show results of the facts]
+Press enter to continue, Ctrl+C to interrupt:
+^M[[[K[0;32mok: [localhost][0m
+
+TASK [Get  GetBiosAttributes] *******************************************************************
+[0;32mok: [localhost][0m
+
+TASK [show facts we retrieved with session token] ***********************************************
+[0;32mok: [localhost] => {[0m
+[0;32m    "biosAttributes": {[0m
+[0;32m        "changed": false,[0m
+[0;32m        "failed": false,[0m
+[0;32m        "redfish_facts": {[0m
+[0;32m            "bios_attribute": {[0m
+[0;32m                "entries": [[0m
+[0;32m                    [[0m
+[0;32m                        {[0m
+[0;32m                            "system_uri": "/redfish/v1/Systems/System.Embedded.1"[0m
+[0;32m                        },[0m
+[0;32m                        {[0m
+[0;32m                            "AcPwrRcvry": "Last",[0m
+[0;32m                            "AcPwrRcvryDelay": "Immediate",[0m
+[0;32m                            "AcPwrRcvryUserDelay": 240,[0m
+[0;32m                            "AesNi": "Enabled",[0m
+[0;32m                            "AssetTag": "",[0m
+[0;32m                            "BootMode": "Uefi",[0m
+[0;32m                            "BootSeqRetry": "Enabled",[0m
+[0;32m                            "CollaborativeCpuPerfCtrl": "Disabled",[0m
+[0;32m                            "ConTermType": "Vt100Vt220",[0m
+[0;32m                            "ControlledTurbo": "Disabled",[0m
+[0;32m                            "CorrEccSmi": "Enabled",[0m
+[0;32m                            "CpuInterconnectBusLinkPower": "Enabled",[0m
+[0;32m                            "CurrentEmbVideoState": "Enabled",[0m
+[0;32m                            "DcuIpPrefetcher": "Enabled",[0m
+[0;32m                            "DcuStreamerPrefetcher": "Enabled",[0m
+[0;32m                            "DynamicCoreAllocation": "Disabled",[0m
+[0;32m                            "EmbSata": "AhciMode",[0m
+[0;32m                            "EmbVideo": "Enabled",[0m
+[0;32m                            "EnergyEfficientTurbo": "Disabled",[0m
+[0;32m                            "EnergyPerformanceBias": "MaxPower",[0m
+[0;32m                            "ErrPrompt": "Enabled",[0m
+[0;32m                            "ExtSerialConnector": "Serial1",[0m
+[0;32m                            "FailSafeBaud": "115200",[0m
+[0;32m                            "ForceInt10": "Disabled",[0m
+[0;32m                            "GlobalSlotDriverDisable": "Disabled",[0m
+[0;32m                            "HddFailover": "Disabled",[0m
+[0;32m                            "InSystemCharacterization": "FastBoot",[0m
+[0;32m                            "IntegratedNetwork1": "Enabled",[0m
+[0;32m                            "IntegratedRaid": "Enabled",[0m
+[0;32m                            "IntelTxt": "Off",[0m
+[0;32m                            "InternalUsb": "On",[0m
+[0;32m                            "IoNonPostedPrefetch": "Disabled",[0m
+[0;32m                            "IoatEngine": "Disabled",[0m
+[0;32m                            "IscsiDev1Con1Auth": "None",[0m
+[0;32m                            "IscsiDev1Con1ChapName": "",[0m
+[0;32m                            "IscsiDev1Con1ChapSecret": "",[0m
+[0;32m                            "IscsiDev1Con1ChapType": "OneWay",[0m
+[0;32m                            "IscsiDev1Con1DhcpEnDis": "Disabled",[0m
+[0;32m                            "IscsiDev1Con1EnDis": "Disabled",[0m
+[0;32m                            "IscsiDev1Con1Gateway": "",[0m
+[0;32m                            "IscsiDev1Con1Interface": "NIC.Integrated.1-1-1",[0m
+[0;32m                            "IscsiDev1Con1Ip": "",[0m
+[0;32m                            "IscsiDev1Con1IsId": "",[0m
+[0;32m                            "IscsiDev1Con1Lun": "0",[0m
+[0;32m                            "IscsiDev1Con1Mask": "",[0m
+[0;32m                            "IscsiDev1Con1Port": 3260,[0m
+[0;32m                            "IscsiDev1Con1Protocol": "IPv4",[0m
+[0;32m                            "IscsiDev1Con1Retry": 3,[0m
+[0;32m                            "IscsiDev1Con1RevChapName": "",[0m
+[0;32m                            "IscsiDev1Con1RevChapSecret": "",[0m
+[0;32m                            "IscsiDev1Con1TargetIp": "",[0m
+[0;32m                            "IscsiDev1Con1TargetName": "",[0m
+[0;32m                            "IscsiDev1Con1TgtDhcpEnDis": "Disabled",[0m
+[0;32m                            "IscsiDev1Con1Timeout": 10000,[0m
+[0;32m                            "IscsiDev1Con1VlanEnDis": "Disabled",[0m
+[0;32m                            "IscsiDev1Con1VlanId": 1,[0m
+[0;32m                            "IscsiDev1Con1VlanPriority": 0,[0m
+[0;32m                            "IscsiDev1Con2Auth": "None",[0m
+[0;32m                            "IscsiDev1Con2ChapName": "",[0m
+[0;32m                            "IscsiDev1Con2ChapSecret": "",[0m
+[0;32m                            "IscsiDev1Con2ChapType": "OneWay",[0m
+[0;32m                            "IscsiDev1Con2DhcpEnDis": "Disabled",[0m
+[0;32m                            "IscsiDev1Con2EnDis": "Disabled",[0m
+[0;32m                            "IscsiDev1Con2Gateway": "",[0m
+[0;32m                            "IscsiDev1Con2Interface": "NIC.Integrated.1-1-1",[0m
+[0;32m                            "IscsiDev1Con2Ip": "",[0m
+[0;32m                            "IscsiDev1Con2IsId": "",[0m
+[0;32m                            "IscsiDev1Con2Lun": "0",[0m
+[0;32m                            "IscsiDev1Con2Mask": "",[0m
+[0;32m                            "IscsiDev1Con2Port": 3260,[0m
+[0;32m                            "IscsiDev1Con2Protocol": "IPv4",[0m
+[0;32m                            "IscsiDev1Con2Retry": 3,[0m
+[0;32m                            "IscsiDev1Con2RevChapName": "",[0m
+[0;32m                            "IscsiDev1Con2RevChapSecret": "",[0m
+[0;32m                            "IscsiDev1Con2TargetIp": "",[0m
+[0;32m                            "IscsiDev1Con2TargetName": "",[0m
+[0;32m                            "IscsiDev1Con2TgtDhcpEnDis": "Disabled",[0m
+[0;32m                            "IscsiDev1Con2Timeout": 10000,[0m
+[0;32m                            "IscsiDev1Con2VlanEnDis": "Disabled",[0m
+[0;32m                            "IscsiDev1Con2VlanId": 1,[0m
+[0;32m                            "IscsiDev1Con2VlanPriority": 0,[0m
+[0;32m                            "IscsiDev1ConOrder": "Con1Con2",[0m
+[0;32m                            "IscsiDev1EnDis": "Disabled",[0m
+[0;32m                            "IscsiInitiatorName": "",[0m
+[0;32m                            "LogicalProc": "Enabled",[0m
+[0;32m                            "LowerMmio": "Disabled",[0m
+[0;32m                            "MemFrequency": "MaxPerf",[0m
+[0;32m                            "MemOpMode": "OptimizerMode",[0m
+[0;32m                            "MemPatrolScrub": "Standard",[0m
+[0;32m                            "MemRefreshRate": "1x",[0m
+[0;32m                            "MemTest": "Disabled",[0m
+[0;32m                            "MmioAbove4Gb": "Enabled",[0m
+[0;32m                            "MonitorMwait": "Enabled",[0m
+[0;32m                            "NmiButton": "Disabled",[0m
+[0;32m                            "NodeInterleave": "Disabled",[0m
+[0;32m                            "NumLock": "On",[0m
+[0;32m                            "OneTimeBootMode": "Disabled",[0m
+[0;32m                            "OneTimeUefiBootSeqDev": "RAID.Integrated.1-1",[0m
+[0;32m                            "OsWatchdogTimer": "Disabled",[0m
+[0;32m                            "PasswordStatus": "Unlocked",[0m
+[0;32m                            "PowerSaver": "Disabled",[0m
+[0;32m                            "Proc1Brand": "Intel(R) Xeon(R) CPU E5-2673 v3 @ 2.40GHz",[0m
+[0;32m                            "Proc1Id": "6-3F-2",[0m
+[0;32m                            "Proc1L2Cache": "12x256 KB",[0m
+[0;32m                            "Proc1L3Cache": "30 MB",[0m
+[0;32m                            "Proc1Microcode": "0x46",[0m
+[0;32m                            "Proc1NumCores": 12,[0m
+[0;32m                            "Proc1TurboCoreNum": "All",[0m
+[0;32m                            "Proc2Brand": "Intel(R) Xeon(R) CPU E5-2673 v3 @ 2.40GHz",[0m
+[0;32m                            "Proc2Id": "6-3F-2",[0m
+[0;32m                            "Proc2L2Cache": "12x256 KB",[0m
+[0;32m                            "Proc2L3Cache": "30 MB",[0m
+[0;32m                            "Proc2Microcode": "0x46",[0m
+[0;32m                            "Proc2NumCores": 12,[0m
+[0;32m                            "Proc2TurboCoreNum": "All",[0m
+[0;32m                            "Proc64bit": "Yes",[0m
+[0;32m                            "ProcAdjCacheLine": "Enabled",[0m
+[0;32m                            "ProcAts": "Enabled",[0m
+[0;32m                            "ProcBusSpeed": "9.60 GT/s",[0m
+[0;32m                            "ProcC1E": "Disabled",[0m
+[0;32m                            "ProcCStates": "Disabled",[0m
+[0;32m                            "ProcConfigTdp": "Nominal",[0m
+[0;32m                            "ProcCoreSpeed": "2.40 GHz",[0m
+[0;32m                            "ProcCores": "All",[0m
+[0;32m                            "ProcExecuteDisable": "Enabled",[0m
+[0;32m                            "ProcHwPrefetcher": "Enabled",[0m
+[0;32m                            "ProcPwrPerf": "MaxPerf",[0m
+[0;32m                            "ProcTurboMode": "Enabled",[0m
+[0;32m                            "ProcVirtualization": "Enabled",[0m
+[0;32m                            "ProcX2Apic": "Disabled",[0m
+[0;32m                            "PwrButton": "Enabled",[0m
+[0;32m                            "PxeDev1EnDis": "Enabled",[0m
+[0;32m                            "PxeDev1Interface": "NIC.Integrated.1-1-1",[0m
+[0;32m                            "PxeDev1Protocol": "IPv4",[0m
+[0;32m                            "PxeDev1VlanEnDis": "Disabled",[0m
+[0;32m                            "PxeDev1VlanId": 1,[0m
+[0;32m                            "PxeDev1VlanPriority": 0,[0m
+[0;32m                            "PxeDev2EnDis": "Disabled",[0m
+[0;32m                            "PxeDev2Interface": "NIC.Integrated.1-1-1",[0m
+[0;32m                            "PxeDev2Protocol": "IPv4",[0m
+[0;32m                            "PxeDev2VlanEnDis": "Disabled",[0m
+[0;32m                            "PxeDev2VlanId": 1,[0m
+[0;32m                            "PxeDev2VlanPriority": 0,[0m
+[0;32m                            "PxeDev3EnDis": "Disabled",[0m
+[0;32m                            "PxeDev3Interface": "NIC.Integrated.1-1-1",[0m
+[0;32m                            "PxeDev3Protocol": "IPv4",[0m
+[0;32m                            "PxeDev3VlanEnDis": "Disabled",[0m
+[0;32m                            "PxeDev3VlanId": 1,[0m
+[0;32m                            "PxeDev3VlanPriority": 0,[0m
+[0;32m                            "PxeDev4EnDis": "Disabled",[0m
+[0;32m                            "PxeDev4Interface": "NIC.Integrated.1-1-1",[0m
+[0;32m                            "PxeDev4Protocol": "IPv4",[0m
+[0;32m                            "PxeDev4VlanEnDis": "Disabled",[0m
+[0;32m                            "PxeDev4VlanId": 1,[0m
+[0;32m                            "PxeDev4VlanPriority": 0,[0m
+[0;32m                            "QpiSpeed": "MaxDataRate",[0m
+[0;32m                            "RedirAfterBoot": "Enabled",[0m
+[0;32m                            "RtidSetting": "Disabled",[0m
+[0;32m                            "SHA256SetupPassword": "",[0m
+[0;32m                            "SHA256SetupPasswordSalt": "",[0m
+[0;32m                            "SHA256SystemPassword": "",[0m
+[0;32m                            "SHA256SystemPasswordSalt": "",[0m
+[0;32m                            "SataPortA": "Auto",[0m
+[0;32m                            "SataPortACapacity": "N/A",[0m
+[0;32m                            "SataPortADriveType": "Unknown Device",[0m
+[0;32m                            "SataPortAModel": "Unknown",[0m
+[0;32m                            "SataPortB": "Auto",[0m
+[0;32m                            "SataPortBCapacity": "N/A",[0m
+[0;32m                            "SataPortBDriveType": "Unknown Device",[0m
+[0;32m                            "SataPortBModel": "Unknown",[0m
+[0;32m                            "SataPortC": "Auto",[0m
+[0;32m                            "SataPortCCapacity": "N/A",[0m
+[0;32m                            "SataPortCDriveType": "Unknown Device",[0m
+[0;32m                            "SataPortCModel": "Unknown",[0m
+[0;32m                            "SataPortD": "Auto",[0m
+[0;32m                            "SataPortDCapacity": "N/A",[0m
+[0;32m                            "SataPortDDriveType": "Unknown Device",[0m
+[0;32m                            "SataPortDModel": "Unknown",[0m
+[0;32m                            "SataPortE": "Auto",[0m
+[0;32m                            "SataPortECapacity": "N/A",[0m
+[0;32m                            "SataPortEDriveType": "Unknown Device",[0m
+[0;32m                            "SataPortEModel": "Unknown",[0m
+[0;32m                            "SataPortF": "Auto",[0m
+[0;32m                            "SataPortFCapacity": "N/A",[0m
+[0;32m                            "SataPortFDriveType": "Unknown Device",[0m
+[0;32m                            "SataPortFModel": "Unknown",[0m
+[0;32m                            "SataPortG": "Auto",[0m
+[0;32m                            "SataPortGCapacity": "N/A",[0m
+[0;32m                            "SataPortGDriveType": "Unknown Device",[0m
+[0;32m                            "SataPortGModel": "Unknown",[0m
+[0;32m                            "SataPortH": "Auto",[0m
+[0;32m                            "SataPortHCapacity": "N/A",[0m
+[0;32m                            "SataPortHDriveType": "Unknown Device",[0m
+[0;32m                            "SataPortHModel": "Unknown",[0m
+[0;32m                            "SataPortI": "Auto",[0m
+[0;32m                            "SataPortICapacity": "N/A",[0m
+[0;32m                            "SataPortIDriveType": "Unknown Device",[0m
+[0;32m                            "SataPortIModel": "Unknown",[0m
+[0;32m                            "SataPortJ": "Auto",[0m
+[0;32m                            "SataPortJCapacity": "N/A",[0m
+[0;32m                            "SataPortJDriveType": "Unknown Device",[0m
+[0;32m                            "SataPortJModel": "Unknown",[0m
+[0;32m                            "SecureBoot": "Disabled",[0m
+[0;32m                            "SecureBootPolicy": "Standard",[0m
+[0;32m                            "SecurityFreezeLock": "Enabled",[0m
+[0;32m                            "SerialComm": "OnConRedirAuto",[0m
+[0;32m                            "SerialPortAddress": "Serial1Com2Serial2Com1",[0m
+[0;32m                            "SetBootOrderDis": "",[0m
+[0;32m                            "SetBootOrderEn": "RAID.Integrated.1-1,NIC.PxeDevice.1-1",[0m
+[0;32m                            "SetBootOrderFqdd1": "",[0m
+[0;32m                            "SetBootOrderFqdd10": "",[0m
+[0;32m                            "SetBootOrderFqdd11": "",[0m
+[0;32m                            "SetBootOrderFqdd12": "",[0m
+[0;32m                            "SetBootOrderFqdd13": "",[0m
+[0;32m                            "SetBootOrderFqdd14": "",[0m
+[0;32m                            "SetBootOrderFqdd15": "",[0m
+[0;32m                            "SetBootOrderFqdd16": "",[0m
+[0;32m                            "SetBootOrderFqdd2": "",[0m
+[0;32m                            "SetBootOrderFqdd3": "",[0m
+[0;32m                            "SetBootOrderFqdd4": "",[0m
+[0;32m                            "SetBootOrderFqdd5": "",[0m
+[0;32m                            "SetBootOrderFqdd6": "",[0m
+[0;32m                            "SetBootOrderFqdd7": "",[0m
+[0;32m                            "SetBootOrderFqdd8": "",[0m
+[0;32m                            "SetBootOrderFqdd9": "",[0m
+[0;32m                            "SetLegacyHddOrderFqdd1": "",[0m
+[0;32m                            "SetLegacyHddOrderFqdd10": "",[0m
+[0;32m                            "SetLegacyHddOrderFqdd11": "",[0m
+[0;32m                            "SetLegacyHddOrderFqdd12": "",[0m
+[0;32m                            "SetLegacyHddOrderFqdd13": "",[0m
+[0;32m                            "SetLegacyHddOrderFqdd14": "",[0m
+[0;32m                            "SetLegacyHddOrderFqdd15": "",[0m
+[0;32m                            "SetLegacyHddOrderFqdd16": "",[0m
+[0;32m                            "SetLegacyHddOrderFqdd2": "",[0m
+[0;32m                            "SetLegacyHddOrderFqdd3": "",[0m
+[0;32m                            "SetLegacyHddOrderFqdd4": "",[0m
+[0;32m                            "SetLegacyHddOrderFqdd5": "",[0m
+[0;32m                            "SetLegacyHddOrderFqdd6": "",[0m
+[0;32m                            "SetLegacyHddOrderFqdd7": "",[0m
+[0;32m                            "SetLegacyHddOrderFqdd8": "",[0m
+[0;32m                            "SetLegacyHddOrderFqdd9": "",[0m
+[0;32m                            "SetupPassword": null,[0m
+[0;32m                            "Slot1": "Enabled",[0m
+[0;32m                            "Slot1Bif": "DefaultBifurcation",[0m
+[0;32m                            "Slot2": "Enabled",[0m
+[0;32m                            "Slot2Bif": "DefaultBifurcation",[0m
+[0;32m                            "Slot3": "Enabled",[0m
+[0;32m                            "Slot3Bif": "DefaultBifurcation",[0m
+[0;32m                            "SnoopHldOff": "Roll256Cycles",[0m
+[0;32m                            "SnoopMode": "EarlySnoop",[0m
+[0;32m                            "SriovGlobalEnable": "Disabled",[0m
+[0;32m                            "SysMemSize": "64 GB",[0m
+[0;32m                            "SysMemSpeed": "2133 Mhz",[0m
+[0;32m                            "SysMemType": "ECC DDR4",[0m
+[0;32m                            "SysMemVolt": "1.20 V",[0m
+[0;32m                            "SysMfrContactInfo": "www.dell.com",[0m
+[0;32m                            "SysPassword": null,[0m
+[0;32m                            "SysProfile": "PerfOptimized",[0m
+[0;32m                            "SystemBiosVersion": "2.13.0",[0m
+[0;32m                            "SystemCpldVersion": "1.0.1",[0m
+[0;32m                            "SystemManufacturer": "Dell Inc.",[0m
+[0;32m                            "SystemMeVersion": "3.1.3.79",[0m
+[0;32m                            "SystemModelName": "PowerEdge R630",[0m
+[0;32m                            "SystemServiceTag": "J127282",[0m
+[0;32m                            "TpmInfo": "No TPM present",[0m
+[0;32m                            "TpmStatus": "Unknown",[0m
+[0;32m                            "UefiComplianceVersion": "2.4",[0m
+[0;32m                            "UefiVariableAccess": "Standard",[0m
+[0;32m                            "UncoreFrequency": "MaxUFS",[0m
+[0;32m                            "Usb3Setting": "Disabled",[0m
+[0;32m                            "UsbPorts": "AllOn",[0m
+[0;32m                            "VideoMem": "16 MB",[0m
+[0;32m                            "WorkloadProfile": "NotAvailable",[0m
+[0;32m                            "WriteCache": "Disabled"[0m
+[0;32m                        }[0m
+[0;32m                    ][0m
+[0;32m                ],[0m
+[0;32m                "ret": true[0m
+[0;32m            }[0m
+[0;32m        }[0m
+[0;32m    }[0m
+[0;32m}[0m
+
+TASK [Pause to check biosAttributes] ************************************************************
+[Pause to check biosAttributes]
+Press enter to continue, Ctrl+C to interrupt:
+^M[[[K[0;32mok: [localhost][0m
+
+TASK [Verify BIOS attributes] *******************************************************************
+
+[0;32mok: [localhost][0m
+
+TASK [check verify bios attributes] *************************************************************
+[check verify bios attributes]
+Press enter to continue, Ctrl+C to interrupt:
+^M[[[K[0;32mok: [localhost][0m
+
+TASK [Delete the Session] ***********************************************************************
+
+[0;33mchanged: [localhost][0m
+
+PLAY RECAP **************************************************************************************
+[0;33mlocalhost[0m                  : [0;32mok=12  [0m [0;33mchanged=2   [0m unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
+
+[?2004h]0;student@bchd: ~/mycode[01;32mstudent@bchd[00m:[01;34m~/mycode[00m$ 
+[?2004l[?2004h]0;student@bchd: ~/mycode[01;32mstudent@bchd[00m:[01;34m~/mycode[00m$ exit
+[?2004lexit
+
+Script done on 2024-06-25 17:45:32+00:00 [COMMAND_EXIT_CODE="0"]
