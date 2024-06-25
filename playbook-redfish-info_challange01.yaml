@@ -1,4 +1,4 @@
-- name: Use Redfish to gather CPU Inventory, and Virtual media Information
+- name: Use Redfish to gather CPU Inventory, and Virtual Media Information
   hosts: Redfish
   connection: local
   gather_facts: false
@@ -7,16 +7,15 @@
     community.general
 
   tasks:
-  - name: Get CPU Inventory
+  - name: Get Chassis Health
     community.general.redfish_info:
-      category: Systems
-      command: GetCpuInventory
+      category: Chassis
+      command: GetHealthReport
       baseuri: "{{ baseuri }}"
       username: "{{ username }}"
       password: "{{ password }}"
-    register: cpuInv
+    register: chassisHealth
 
-  - name: Display CPU data
+  - name: Display Chassis Health
     debug:
-      var: cpuInv
-
+      var: chassisHealth
