@@ -1,0 +1,9 @@
+- name: Full audit of iDRAC interface  # metadata (name of our play)
+  hosts: localhost      # maps to inventory
+  connection: local     # enable ansible to work with a local library (such as an SDK)
+  gather_facts: False   # turn off the first task which is by default an audit
+
+  tasks:
+    - name: iDRAC Health Check
+      import_role:
+        name: poweredge-status-logs
