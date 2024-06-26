@@ -1,0 +1,12 @@
+- name: Manipulate  of iDRAC interface  # metadata (name of our play)
+  hosts: localhost      # maps to inventory
+  connection: local     # enable ansible to work with a local library (such as an SDK)
+  gather_facts: False   # turn off the first task which is by default an audit
+
+  vars_files:
+    - vars/secret.yml
+
+  tasks:
+    - name: Control Power State
+      import_role:
+        name: powercycle

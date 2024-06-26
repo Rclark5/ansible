@@ -1,0 +1,23 @@
+- name: Power on a Poweredge - Power to the people.  # metadata (name of our play)
+  hosts: localhost      # maps to inventory
+  connection: local     # enable ansible to work with a local library (such as an SDK)
+  gather_facts: False   # turn off the first task which is by default an audit
+
+  vars:
+    ip: "10.0.0.89"
+    user: "root"
+    password: "r0gerwilc0"
+    desired_state: "On"
+
+  tasks:
+    - name: Power On
+      dellemc.openmanage.redfish_powerstate:
+        baseuri: "{{ ip }}"
+        username: "{{ user }}"
+        password: "{{ password }}"
+        validate_certs: False
+        reset_type: "{{ desired_state }}"
+      register: results
+    - name: Show us what you learned
+      debug:
+        var: results
