@@ -1,0 +1,20 @@
+- name: Learning about blocks
+  hosts: planetexpress
+  connection: ansible.builtin.ssh
+  gather_facts: no
+
+  vars_files:
+    - vault-example/vars/wednesday_warmup_secret.yml
+  vars:
+    ansible_ssh_pass: "{{ vault_ssh_pass }}" 
+
+  tasks:
+  - name: BLOCK - this is what we want to Try to do
+    block:
+
+      - name: Example task
+        ansible.builtin.shell: "echo 'My single task ran' > example.txt"
+      - name: Example task
+        ansible.builtin.shell: "echo 'My second task ran' >> example.txt"
+      - name: Example task
+        ansible.builtin.shell: "echo 'My third task ran' >> example.txt"

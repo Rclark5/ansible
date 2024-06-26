@@ -1,0 +1,46 @@
+- name: Create directories for popular cartoon characters on farnsworth
+  hosts: farnsworth
+  gather_facts: no
+
+  vars_files:
+    - vault-example/vars/wednesday_warmup_secret.yml
+
+
+  vars:
+    cartoon_characters:
+      - MickeyMouse
+      - BugsBunny
+      - HomerSimpson
+      - SpongeBobSquarePants
+      - ScoobyDoo
+    ansible_ssh_pass: "{{ vault_ssh_pass }}" 
+
+  tasks:
+    - name: Test pass
+      debug:
+        var: vault_ansible_ssh_pass
+    - name: Create directories for each cartoon character
+      file:
+        path: "{{ cartoon_characters.0 }}"
+        state: directory
+    - name: Create directories for each cartoon character
+      file:
+        path: "{{ cartoon_characters.1 }}"
+        state: directory
+    - name: Create directories for each cartoon character
+      file:
+        path: "{{ cartoon_characters.2 }}"
+        state: directory
+    - name: Create directories for each cartoon character
+      file:
+        path: "{{ cartoon_characters.3 }}"
+        state: directory
+    - name: Create directories for each cartoon character
+      file:
+        path: "{{ cartoon_characters.4 }}"
+        state: directory
+    - name: Loop version of Create directories for each cartoon character
+      file:
+        path: "{{ item }}"
+        state: directory
+      loop: "{{ cartoon_characters }}"
