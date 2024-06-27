@@ -1,0 +1,50 @@
+---
+- name: Testing application
+  hosts: localhost
+  connection: local
+  gather_facts: false
+
+  tasks:
+    - name: Read-write git checkout from github
+      ansible.builtin.git:
+        repo: https://github.com/rzfeeser/simpleflaskservice
+        dest: ~/simpleflaskservice
+
+    - name: Build an image from Dockerfile
+      community.docker.docker_image:
+        build:
+          path: ~/simpleflaskservice
+        name: flasksvr
+        tag: latest         # default to latest
+        # push: yes
+        source: build       # create from a Dockerfile
+        state: present      # we want the image to be avail for containers to build
+
+    - name: Create a container
+      community.docker.docker_container:
+        name: zork
+        image: flasksvr:latest   # we just made this image
+        recreate: yes
+        ports:
+          - "9876:9876"
+
+        # Testing Phase
+        # run simpleclient.py
+        # - name: Run simpleclient (mock testing) # for pythong testing use pytest
+        #   script: ~/simpleflaskservice/simpleclient.py
+        #   args:
+        #     executable: /usr/bin/python3
+
+    - name: Stop and remove container
+      community.docker.docker_container:
+        name: zork
+        state: absent
+
+        # push the image to a repository if the playbook has made it this far
+        # 
+        #    - name: Push to a private repo
+        #      docker_image:
+        #        push: yes
+        #        tag: latest
+        #        name: zork
+        #        repository: registry.example.com/example/simpleflaskservice
