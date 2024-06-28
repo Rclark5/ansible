@@ -1,0 +1,79 @@
+---
+- name: Poweredge Challange
+  hosts: localhost
+  connection: local
+  gather_facts: true
+
+  collections:
+    - dellemc.openmanage
+
+  vars: 
+    idrac_ip: 10.0.0.89
+    idrac_user: root
+    idrac_password: r0gerwilc0
+    new_user: demo
+    new_user_password: demoAlta3RO
+
+  tasks:
+  - name: List all users
+    community.general.redfish_info:
+      category: Accounts
+      command: ListUsers
+      baseuri: "{{ idrac_ip }}"
+      username: "{{ idrac_user }}"
+      password: "{{ idrac_password }}"
+    register: result
+
+
+#  - name: show what type of variable result is
+#    ansible.builtin.debug:
+#      msg: "{{ result |type_debug }}"
+
+#  - name: show what type of entries is 
+#    ansible.builtin.debug:
+#      msg: "{{ result.redfish_facts.user.entries |type_debug }}"
+
+#  - name: show first user name
+#    ansible.builtin.debug:
+#      msg: "{{ result.redfish_facts.user.entries[0].UserName }}"
+
+  - name: Precheck User should not exist
+    ansible.builtin.assert:
+       that: result.redfish_facts.user.entries | selectattr(search_key,'equalto',search_val) | list |count < 1
+    vars:
+      search_key: UserName
+      search_val: "{{ new_user }}"
+
+
+  - name: Add and enable user
+    community.general.redfish_command:
+      category: Accounts
+      command: AddUser,EnableUser
+      baseuri: "{{ idrac_ip }}"
+      username: "{{ idrac_user }}"
+      password: "{{ idrac_password }}"
+      account_username: "{{ new_user }}"
+      account_password: "{{ new_user_password }}"
+
+  - name: Rerun setup to getfacts - is needed?
+    setup:
+
+  - name: Update fetching info
+    community.general.redfish_info:
+      category: Accounts
+      command: ListUsers
+      baseuri: "{{ idrac_ip }}"
+      username: "{{ idrac_user }}"
+      password: "{{ idrac_password }}"
+    register: result2
+
+  - name: Postcheck  user should now exist
+    ansible.builtin.assert:
+       that: result2.redfish_facts.user.entries | selectattr(search_key,'equalto',search_val) | list |count > 0  
+    vars:
+      search_key: UserName
+      search_val: "{{ new_user }}"
+
+#  - name: list all users
+#    ansible.builtin.debug:
+#       var: result

@@ -1,0 +1,21 @@
+- hosts: localhost
+  gather_facts: no
+  vars:
+    list_of_dicts: [
+     {
+     "key1" : "value1",
+     "key2" : "value2",
+     "key3" : "value3"
+     },
+     {
+     "key1" : "value4",
+     "key2" : "value5",
+     "key3" : "value3"
+     }]
+  tasks:
+    - debug:
+        msg: found
+      when: list_of_dicts | selectattr(search_key,'equalto',search_val) | list | count > 0
+      vars:
+        search_key: key3
+        search_val: value3

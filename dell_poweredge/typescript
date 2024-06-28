@@ -1,0 +1,86 @@
+Script started on 2024-06-28 15:36:28+00:00 [TERM="xterm-256color" TTY="/dev/pts/2" COLUMNS="208" LINES="49"]
+[?2004h]0;student@bchd: ~/mycode/dell-poweredge[01;32mstudent@bchd[00m:[01;34m~/mycode/dell-poweredge[00m$ ansible-playbook playbook-poweredge-challenge.yml 
+[?2004l
+PLAY [Poweredge Challange] *************************************************************************************************************************************************************************************
+
+TASK [Gathering Facts] *****************************************************************************************************************************************************************************************
+[0;32mok: [localhost][0m
+
+TASK [List all users] ******************************************************************************************************************************************************************************************
+[0;32mok: [localhost][0m
+
+TASK [show what type of variable result is] ********************************************************************************************************************************************************************
+[0;32mok: [localhost] => {[0m
+[0;32m    "msg": "dict"[0m
+[0;32m}[0m
+
+TASK [show what type of data the results variable is made up of] ***********************************************************************************************************************************************
+[0;32mok: [localhost] => {[0m
+[0;32m    "result": {[0m
+[0;32m        "changed": false,[0m
+[0;32m        "failed": false,[0m
+[0;32m        "redfish_facts": {[0m
+[0;32m            "user": {[0m
+[0;32m                "entries": [[0m
+[0;32m                    {[0m
+[0;32m                        "Enabled": true,[0m
+[0;32m                        "Id": "2",[0m
+[0;32m                        "Locked": false,[0m
+[0;32m                        "Name": "User Account",[0m
+[0;32m                        "RoleId": "Administrator",[0m
+[0;32m                        "UserName": "root"[0m
+[0;32m                    },[0m
+[0;32m                    {[0m
+[0;32m                        "Enabled": true,[0m
+[0;32m                        "Id": "3",[0m
+[0;32m                        "Locked": false,[0m
+[0;32m                        "Name": "User Account",[0m
+[0;32m                        "RoleId": "Administrator",[0m
+[0;32m                        "UserName": "raul"[0m
+[0;32m                    },[0m
+[0;32m                    {[0m
+[0;32m                        "Enabled": true,[0m
+[0;32m                        "Id": "4",[0m
+[0;32m                        "Locked": false,[0m
+[0;32m                        "Name": "User Account",[0m
+[0;32m                        "RoleId": "Administrator",[0m
+[0;32m                        "UserName": "larry"[0m
+[0;32m                    },[0m
+[0;32m                    {[0m
+[0;32m                        "Enabled": true,[0m
+[0;32m                        "Id": "5",[0m
+[0;32m                        "Locked": false,[0m
+[0;32m                        "Name": "User Account",[0m
+[0;32m                        "RoleId": "Administrator",[0m
+[0;32m                        "UserName": "hello"[0m
+[0;32m                    },[0m
+[0;32m                    {[0m
+[0;32m                        "Enabled": true,[0m
+[0;32m                        "Id": "6",[0m
+[0;32m                        "Locked": false,[0m
+[0;32m                        "Name": "User Account",[0m
+[0;32m                        "RoleId": "Administrator",[0m
+[0;32m                        "UserName": "Munda"[0m
+[0;32m                    },[0m
+[0;32m                    {[0m
+[0;32m                        "Enabled": true,[0m
+[0;32m                        "Id": "7",[0m
+[0;32m                        "Locked": false,[0m
+[0;32m                        "Name": "User Account",[0m
+[0;32m                        "RoleId": "Administrator",[0m
+[0;32m                        "UserName": "Morris"[0m
+[0;32m                    }[0m
+[0;32m                ],[0m
+[0;32m                "ret": true[0m
+[0;32m            }[0m
+[0;32m        }[0m
+[0;32m    }[0m
+[0;32m}[0m
+
+PLAY RECAP *****************************************************************************************************************************************************************************************************
+[0;32mlocalhost[0m                  : [0;32mok=4   [0m changed=0    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
+
+[?2004h]0;student@bchd: ~/mycode/dell-poweredge[01;32mstudent@bchd[00m:[01;34m~/mycode/dell-poweredge[00m$ exit
+[?2004lexit
+
+Script done on 2024-06-28 15:37:03+00:00 [COMMAND_EXIT_CODE="0"]
